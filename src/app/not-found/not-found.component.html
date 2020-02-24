@@ -1,0 +1,10 @@
+<div class="error-container" fxLayout="column" fxLayoutAlign="center center">
+  <!-- Spinner -->
+  <div class="loading-wrapper" *ngIf="errorSpin">
+    <mat-spinner></mat-spinner>
+  </div>
+  <!-- Error Message -->
+  <mat-icon class="user-icon">person_pin</mat-icon>
+  <h1 class="not-found-text">¡ Lo sentimos !</h1>
+  <h2 class="not-found-text">El usuario no existe</h2>
+</div>

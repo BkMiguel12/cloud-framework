@@ -1,0 +1,111 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$md-primary-test: (
+    50 : #ffe0ed,
+    100 : #ffb3d2,
+    200 : #ff80b4,
+    300 : #ff4d95,
+    400 : #ff267f,
+    500 : #ff0068,
+    600 : #ff0060,
+    700 : #ff0055,
+    800 : #ff004b,
+    900 : #ff003a,
+    A100 : #ffffff,
+    A200 : #fff2f4,
+    A400 : #ffbfca,
+    A700 : #ffa6b4,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$md-secondary-test: (
+    50 : #e8eaf6,
+    100 : #c5cbe9,
+    200 : #9fa8da,
+    300 : #7985cb,
+    400 : #5c6bc0,
+    500 : #3f51b5,
+    600 : #394aae,
+    700 : #3140a5,
+    800 : #29379d,
+    900 : #1b278d,
+    A100 : #c6cbff,
+    A200 : #939dff,
+    A400 : #606eff,
+    A700 : #4757ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$md-warn-test: (
+  50 : #faece8,
+  100 : #f2cfc7,
+  200 : #eaafa1,
+  300 : #e18f7b,
+  400 : #da775f,
+  500 : #d45f43,
+  600 : #cf573d,
+  700 : #c94d34,
+  800 : #c3432c,
+  900 : #b9321e,
+  A100 : #fff2f1,
+  A200 : #ffc5be,
+  A400 : #ff988b,
+  A700 : #ff8171,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$custom-theme-primary: mat-palette($md-primary-test);
+$custom-theme-accent:  mat-palette($md-secondary-test);
+$custom-theme-warn:    mat-palette($md-warn-test);
+
+$custom-theme-soap: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+
+@include angular-material-theme($custom-theme-soap);
