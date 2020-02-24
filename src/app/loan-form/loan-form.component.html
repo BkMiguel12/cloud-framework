@@ -1,76 +1,63 @@
 <!-- Spinner -->
 <div class="loading-wrapper" *ngIf="errorSpin">
-    <mat-spinner></mat-spinner>
-  </div>
+  <mat-spinner></mat-spinner>
+</div>
 
-  <!-- Form -->
-  <div class="form-container" *ngIf="data">
+<!-- Form -->
+<div class="form-container" *ngIf="data">
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" #f="ngForm">
-      <!-- Name -->
-      <mat-form-field>
-        <input matInput type="text" formControlName="name" placeholder="Nombre" required>
-        <mat-error *ngIf="form.controls.name.errors?.required">Campo requerido</mat-error>
-      </mat-form-field>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" #f="ngForm">
+    <!-- Name -->
+    <mat-form-field>
+      <input matInput type="text" formControlName="name" placeholder="Nombre" required>
+      <mat-error *ngIf="form.controls.name.errors?.required">Campo requerido</mat-error>
+    </mat-form-field>
 
-      <!-- Surname -->
-      <mat-form-field>
-        <input matInput type="text" formControlName="surname" placeholder="Apellido" required>
-        <mat-error *ngIf="form.controls.surname.errors?.required">Campo requerido</mat-error>
-      </mat-form-field>
+    <!-- Surname -->
+    <mat-form-field>
+      <input matInput type="text" formControlName="surname" placeholder="Apellido" required>
+      <mat-error *ngIf="form.controls.surname.errors?.required">Campo requerido</mat-error>
+    </mat-form-field>
 
-      <!-- Phone -->
-      <mat-form-field>
-        <input matInput type="text" formControlName="phone" placeholder="Teléfono" required>
-        <mat-error *ngIf="form.controls.phone.errors?.required">Campo requerido</mat-error>
-      </mat-form-field>
+    <!-- Phone -->
+    <mat-form-field>
+      <input matInput type="text" formControlName="phone" placeholder="Teléfono" required>
+      <mat-error *ngIf="form.controls.phone.errors?.required">Campo requerido</mat-error>
+    </mat-form-field>
 
-      <!-- Email -->
-      <mat-form-field>
-        <input matInput type="email" formControlName="email" placeholder="Correo Electrónico" required>
-        <mat-error *ngIf="form.controls.email.errors?.required">Campo requerido</mat-error>
-      </mat-form-field>
+    <!-- Email -->
+    <mat-form-field>
+      <input matInput type="email" formControlName="email" placeholder="Correo Electrónico" required>
+      <mat-error *ngIf="form.controls.email.errors?.required">Campo requerido</mat-error>
+    </mat-form-field>
 
-      <!-- Age -->
-      <mat-form-field>
-        <input matInput type="number" formControlName="age" placeholder="Edad" required>
-        <mat-error *ngIf="form.controls.age.errors?.required">Campo requerido</mat-error>
-      </mat-form-field>
+    <!-- Age -->
+    <mat-form-field>
+      <input matInput type="number" formControlName="age" placeholder="Edad" required>
+      <mat-error *ngIf="form.controls.age.errors?.required">Campo requerido</mat-error>
+    </mat-form-field>
 
-      <!-- Loan Date -->
-      <mat-form-field>
-        <input matInput [matDatepicker]="picker" formControlName="loan_date" placeholder="Fecha del Préstamo" required>
-        <mat-error *ngIf="form.controls.loan_date.errors?.required">Campo requerido</mat-error>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+    <!-- Loan Date -->
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" formControlName="loan_date" placeholder="Fecha del Préstamo" required>
+      <mat-error *ngIf="form.controls.loan_date.errors?.required">Campo requerido</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
 
-      <!-- Loan Amount -->
-      <mat-form-field>
-        <input matInput type="number" formControlName="loan_amount" placeholder="Monto del Préstamo" required>
-        <mat-error *ngIf="form.controls.loan_amount.errors?.required">Campo requerido</mat-error>
-      </mat-form-field>
+    <!-- Loan Amount -->
+    <mat-form-field>
+      <input matInput type="number" formControlName="loan_amount" placeholder="Monto del Préstamo" required>
+      <mat-error *ngIf="form.controls.loan_amount.errors?.required">Campo requerido</mat-error>
+    </mat-form-field>
 
-      <!-- Loan Weeks -->
-      <mat-form-field>
-        <input matInput type="number" formControlName="loan_weeks" placeholder="Semanas del Préstamo" required>
-        <mat-error *ngIf="form.controls.loan_weeks.errors?.required">Campo requerido</mat-error>
-      </mat-form-field>
+    <!-- Loan Weeks -->
+    <mat-form-field>
+      <input matInput type="number" formControlName="loan_weeks" placeholder="Semanas del Préstamo" required>
+      <mat-error *ngIf="form.controls.loan_weeks.errors?.required">Campo requerido</mat-error>
+    </mat-form-field>
 
-      <button mat-raised-button color="primary" class="send-button" type="submit"
-        [disabled]="form.invalid || loading">Enviar</button>
-    </form>
-  </div>
-
-<!-- <ng-template #notFound>
-  <div class="error-container" fxLayout="column" fxLayoutAlign="center center">
-
-    <div class="loading-wrapper" *ngIf="errorSpin">
-      <mat-spinner></mat-spinner>
-    </div>
-
-    <mat-icon class="user-icon">person_pin</mat-icon>
-    <h1 class="not-found-text">¡ Lo sentimos !</h1>
-    <h2 class="not-found-text">El usuario no existe</h2>
-  </div>
-</ng-template> -->
+    <button mat-raised-button color="primary" class="send-button" type="submit"
+      [disabled]="form.invalid || loading">Enviar</button>
+  </form>
+</div>

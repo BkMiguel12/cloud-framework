@@ -4,7 +4,6 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoanService } from '../services/loan.service';
 import Swal from 'sweetalert2'
-import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-loan-form',
@@ -29,9 +28,8 @@ export class LoanFormComponent implements OnInit {
               private loanService: LoanService) { }
 
   ngOnInit() {
-    console.log('LOAN');
-    this.initForm();
-    this.actRouted.params.subscribe(params => {
+    this.initForm(); // Init form
+    this.actRouted.params.subscribe(params => { // Get the params and verify
       console.log(params);
       if(params && params.id) {
         this.userId = params.id;
@@ -40,21 +38,9 @@ export class LoanFormComponent implements OnInit {
         this.router.navigate(['not_found']);
       }
     })
-    // this.actRouted.queryParams.pipe(
-    //   filter(params => 'id' in params),
-    //   map((params:any) => params.id),
-    // )
-    // .subscribe(params => {
-    //   console.log(params);
-    //   if(params) {
-    //     this.userId = params;
-    //     this.getUser(this.userId);
-    //   } else {
-    //     this.router.navigate(['not_found']);
-    //   }
-    // });
   }
 
+  // Init the form group and form controls
   initForm() {
     this.form = new FormGroup({
       name: new FormControl(null, Validators.required),
@@ -68,6 +54,7 @@ export class LoanFormComponent implements OnInit {
     });
   }
 
+  // Cal the service to get the user info
   getUser(id:string) {
     this.loanService.getUser(id).then(res => {
       console.log(res);
@@ -85,10 +72,7 @@ export class LoanFormComponent implements OnInit {
     });
   }
 
-  reset() {
-    this.f.resetForm();
-  }
-
+  // Submit the info for a new loan
   onSubmit() {
     this.loading = true;
     let date = formatDate(this.form.get('loan_date').value, 'yyyy-MM-dd', this.locale);
